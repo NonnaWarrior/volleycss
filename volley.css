@@ -1,53 +1,44 @@
-/*--- First step - FONTS: CSS involves embedding fonts at the beginning of the document. You can import and use webfont, for example here we imported a Google font (https://fonts.google.com/) ---*/
-@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
-
-/* Every scoreboard has a unique container (VOLLEYBALL = containervolley / BASKETBALL = containerbasket etc.. read them with your browser inspector). You can use them for override styles */
-.containervolley div{ 
-  font-family: 'Roboto Mono' , monospace;
-}
-
 
 /*mette tutto in maiuscolo*/
 .boxhometeam {
   background: rgba(0,69,187,255);
   color: white;
 }
-
 .boxawayteam {
   background: rgba(255,255,255,255);
   color: rgba(0,69,187,255);
 }
-
 /*this change the background color and font color of SET column*/
 .labelsets, .boxhomesets, .boxawaysets {
   background: rgba(255,20,134,255);
   color: white;
 }
-
 /*this change the background color and font color of POINT column*/
-.labelpoints, .boxhomepoints, .boxawaypoints {
+.labelpoints, .boxpoints {
   background: rgba(130,130,130,255);
   color: white;
 }
-
-/*if you don't want the labels of Set and points, you can hide them*/
+.box, div {box-sizing: border-box; display:flex; align-items:center; height:100%;}
+.container {float:left; width:auto; font-family: 'Roboto Mono', monospace}
 .sgrlogo, .boxservice {
   display:none;
 }
+/*---- VOLLEY --------*/
 
-/* ELEMENT POSITIONING */
-/* The positioning of the elements is dictated by a grid. You can find a great guide here: https://css-tricks.com/snippets/css/complete-guide-grid/ */ 
 
 .containervolley {
   display: grid;
   grid-template-columns: auto auto 155px 480px 251px;
   grid-template-rows: 55px 201px 201px;
-  gap: 12px 12px;
-  margin: 10px 10px;
+  gap: 12px 12px; margin: 10px 10px;
 }
+.containervolley .label {font-size: 2.5vw;}
+.containervolley .box, 
+.containervolley .label {justify-content:center;}
 
-.boxhometeam, .boxawayteam {position: relative; justify-content: flex-end; padding: 0 3vw;}
+.boxhometeam, .boxawayteam {position: relative; padding: 0 3vw; font-size:10vw}
+
 /*  MassaVolley Styles */
 .boxhometeam:before {content:""; position:relative; top:0; left:0; width:40%; height:100%; background:url(https://i.imgur.com/lFPVU6Y.png) no-repeat left;background-size:90%;}
 
@@ -58,18 +49,28 @@
 /*this change the position home e away team */
 .boxhometeam, .boxawayteam { 
   grid-column: 4/5;
-  font-size: 1.8em;
   font-weight: bold;
+  font-size: 9vw;
 }
 
 /*this swap the position of Points and Set*/
-.boxhomesets, .boxawaysets {
+.boxhomesets{
   justify-content: center; 
   padding: 0 2vw; 
   text-align:center;
   grid-column: 3/4;
-  font-size: 1.8em;
+  grid-row: 2/3;
   font-weight: bold;
+  font-size: 9vw;
+}
+ .boxawaysets {
+  justify-content: center; 
+  padding: 0 2vw; 
+  text-align:center;
+  grid-column: 3/4;
+  grid-row: 3/4;
+  font-weight: bold;
+  font-size: 9vw;
 }
 
 .boxhomepoints, .boxawaypoints {
@@ -77,8 +78,8 @@
   justify-content: center;
   align-items: center;
   grid-column: 5/6;
-  font-size: 1.8em;
   font-weight: bold;
+  font-size: 9vw;
 }
 
 .labelsets {
@@ -86,7 +87,7 @@
   justify-content: center;
   align-items: center;
   grid-column: 3/4;
-  font-size: 0.5em;
+  grid-row: 1/2;
   font-weight: bold;
 }
 
@@ -95,33 +96,28 @@
   justify-content: center;
   align-items: center;
   grid-column: 5/6;
-  font-size: 0.5em;
   font-weight: bold;
 }
 
 /*angoli arrotondati*/
-
 .boxhomepoints {
   border-top-right-radius: 2vw;
 }
 .boxawaypoints {
   border-bottom-right-radius: 2vw;
 }
-
 .boxhomesets {
   border-top-left-radius: 2vw;
 }
 .boxawaysets {
   border-bottom-left-radius: 2vw;
 }
-
 .labelsets {
   border-bottom-left-radius: 3vw;
   border-top-left-radius: 1vw;
   border-bottom-right-radius: 3vw;
   border-top-right-radius: 1vw;
 }
-
 .labelpoints {
   border-bottom-left-radius: 3vw;
   border-top-left-radius: 1vw;
