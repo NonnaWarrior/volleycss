@@ -1,0 +1,130 @@
+/*--- First step - FONTS: CSS involves embedding fonts at the beginning of the document. You can import and use webfont, for example here we imported a Google font (https://fonts.google.com/) ---*/
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+/* Every scoreboard has a unique container (VOLLEYBALL = containervolley / BASKETBALL = containerbasket etc.. read them with your browser inspector). You can use them for override styles */
+.containervolley div{ 
+  font-family: 'Roboto Mono' , monospace;
+}
+
+
+/*mette tutto in maiuscolo*/
+.boxhometeam {
+  background: rgba(0,69,187,255);
+  color: white;
+}
+
+.boxawayteam {
+  background: rgba(255,255,255,255);
+  color: rgba(0,69,187,255);
+}
+
+/*this change the background color and font color of SET column*/
+.labelsets, .boxhomesets, .boxawaysets {
+  background: rgba(255,20,134,255);
+  color: white;
+}
+
+/*this change the background color and font color of POINT column*/
+.labelpoints, .boxhomepoints, .boxawaypoints {
+  background: rgba(130,130,130,255);
+  color: white;
+}
+
+/*if you don't want the labels of Set and points, you can hide them*/
+.sgrlogo, .boxservice {
+  display:none;
+}
+
+/* ELEMENT POSITIONING */
+/* The positioning of the elements is dictated by a grid. You can find a great guide here: https://css-tricks.com/snippets/css/complete-guide-grid/ */ 
+
+.containervolley {
+  display: grid;
+  grid-template-columns: auto auto 155px 480px 251px;
+  grid-template-rows: 55px 201px 201px;
+  gap: 12px 12px;
+  margin: 10px 10px;
+}
+
+.boxhometeam, .boxawayteam {position: relative; justify-content: flex-end; padding: 0 3vw;}
+/*  MassaVolley Styles */
+.boxhometeam:before {content:""; position:relative; top:0; left:0; width:40%; height:100%; background:url(https://i.imgur.com/lFPVU6Y.png) no-repeat left;background-size:90%;}
+
+/*  Away Team Styles */
+.boxawayteam:before {content:""; position:relative; top:0; left:0; width:40%; height:100%; background:url(https://i.imgur.com/ekdaQQI.png) no-repeat left; background-size:90%;}
+
+
+/*this change the position home e away team */
+.boxhometeam, .boxawayteam { 
+  grid-column: 4/5;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+/*this swap the position of Points and Set*/
+.boxhomesets, .boxawaysets {
+  justify-content: center; 
+  padding: 0 2vw; 
+  text-align:center;
+  grid-column: 3/4;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.boxhomepoints, .boxawaypoints {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 5/6;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.labelsets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 3/4;
+  font-size: 0.5em;
+  font-weight: bold;
+}
+
+.labelpoints {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 5/6;
+  font-size: 0.5em;
+  font-weight: bold;
+}
+
+/*angoli arrotondati*/
+
+.boxhomepoints {
+  border-top-right-radius: 2vw;
+}
+.boxawaypoints {
+  border-bottom-right-radius: 2vw;
+}
+
+.boxhomesets {
+  border-top-left-radius: 2vw;
+}
+.boxawaysets {
+  border-bottom-left-radius: 2vw;
+}
+
+.labelsets {
+  border-bottom-left-radius: 3vw;
+  border-top-left-radius: 1vw;
+  border-bottom-right-radius: 3vw;
+  border-top-right-radius: 1vw;
+}
+
+.labelpoints {
+  border-bottom-left-radius: 3vw;
+  border-top-left-radius: 1vw;
+  border-bottom-right-radius: 3vw;
+  border-top-right-radius: 1vw;
+}
